@@ -18,15 +18,26 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                swiftfulThinkingSection
+            ZStack {
+                // background
+                Color.theme.background.ignoresSafeArea()
                 
-                coingeckoSection
-                
-                developerSection
-                
-                applicationSection
+                // content
+                List {
+                    swiftfulThinkingSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    
+                    coingeckoSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    
+                    developerSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    
+                    applicationSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                }
             }
+            
             .font(.headline)
             .tint(.blue)
             .listStyle(.grouped)
@@ -38,6 +49,7 @@ struct SettingsView: View {
                     }
                 }
             }
+            .background(Color.theme.background)
         }
     }
 }
